@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <script src="/js/main.js" type="module"></script>
+  <link rel="stylesheet" type="text/css" href="/css/index.min.css">
+
+
+  <title>Start Home</title>
+
+  <!-- jquery -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
+  <script type="module" src="/js/main.js"></script>
+
+
+
+  <!-- 
+
+    analog clock from https://codepen.io/fghty/pen/OJmRYZz
+   -->
+
+
+  <script>
+    const root = document.documentElement;
+    const defaultBgColor = 'white';
+
+    // Get the saved value from local storage
+    const savedBgColor = localStorage.getItem('bgColor');
+
+    // Set the value to the default if it doesn't exist in local storage
+    const currentBgColor = savedBgColor || defaultBgColor;
+
+    // Set the initial value of --bg CSS variable
+    // root.style.setProperty('--bg', currentBgColor);
+
+
+    root.style.setProperty('--bg', currentBgColor);
+
+
+  </script>
+
+
+</head>
+
+<body>
+
+
+  <div id="drawer-container" class="drawer-container">
+
+    <div class="drawer-pusher">
+      <nav class="drawer-menu drawer-effect-3" id="menu-3">
+
+        <div class="grid">
+          <h2>NOTES</h2>
+          <textarea id="noteTextarea" placeholder="Write something.."></textarea>
+          <small class="desktop">(shift + enter to save)</small>
+          <button id="saveButton" class="btn px">SAVE NOTE</button>
+        </div>
+
+        <div id="notas"></div>
+
+        <div class="grid mt">
+          <h2>COMMITS</h2>
+          <label for="usernameInput">GitHub username*</label>
+          <input type="text" id="usernameInput">
+          <label for="tokenInput">GitHub token</label>
+          <input type="text" id="tokenInput">
+          <button id="fetchMoreBtn" class="btn px">Fetch More</button>
+
+        </div>
+
+        <ul id="pushesBox" class="mt"></ul>
+      </nav>
+
+
+      <div class="wallpaper" id="wallpaper"></div>
+
+      <header>
+        <div class="d-flex">
+          <input type="color" name="" id="colorInput" class="btn">
+          <button class="btn px" id="resetColorBtn">reset</button>
+        </div>
+        <button data-effect="drawer-effect-3" class="btn px">MENU</button>
+      </header>
+
+      <main>
+        <div class="clock--circle">
+          <div class="outer-clock-face">
+            <div class="marking marking-one"></div>
+            <div class="marking marking-two"></div>
+            <div class="marking marking-three"></div>
+            <div class="marking marking-four"></div>
+            <div class="inner-clock-face">
+              <div class="hand hour"></div>
+              <div class="hand min"></div>
+              <div class="hand sec"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <form id="form" class="mx-auto">
+          <input id="query" class="" type="text" placeholder="Search on Google" />
+        </form>
+        <div id="jokeBox"></div>
+
+      </main>
+
+
+
+
+
+
+      <!-- <footer id="myFooter">
+        <p class="d-flex">Visit the <a href="http://" target="_blank" rel="noopener noreferrer">repository</a></p>
+        <button class="btn--close"></button>
+      </footer> -->
+
+
+    </div>
+
+
+
+
+    <script>
+      // Get all the close buttons with the class btn--close
+      const closeButtons = document.querySelectorAll('.btn--close');
+
+      // Add click event listener to each close button
+      closeButtons.forEach((closeButton) => {
+        closeButton.addEventListener('click', () => {
+          // Remove the parent element of the button
+          closeButton.parentNode.remove();
+        });
+      });
+
+    </script>
+
+
+</body>
+
+</html>
